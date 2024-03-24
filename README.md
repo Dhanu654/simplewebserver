@@ -73,7 +73,7 @@ content= '''
 </html>
 '''
 
-class Myhandler(BaseHTTPRequestHandler):
+class myhandler(BaseHTTPRequestHandler):
     def do_GET(self):
         print("Get request received...")
         self.send_response(200) 
@@ -83,8 +83,8 @@ class Myhandler(BaseHTTPRequestHandler):
 
 
 server_address =('',8000)
-httpd = HTTPServer(server_address,Myhandler)
-print("my webserver is running") 
+httpd = HTTPServer(server_address,myhandler)
+print("my webserver is running...") 
 httpd.serve_forever()
 ~~~
 
