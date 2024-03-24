@@ -21,6 +21,7 @@ Serving the HTML pages.
 Testing the webserver.
 
 ## PROGRAM:
+~~~
 from http.server import HTTPServer,BaseHTTPRequestHandler
 
 content= '''
@@ -72,7 +73,7 @@ content= '''
 </html>
 '''
 
-class MyServer(BaseHTTPRequestHandler):
+class Myhandler(BaseHTTPRequestHandler):
     def do_GET(self):
         print("Get request received...")
         self.send_response(200) 
@@ -80,13 +81,16 @@ class MyServer(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(content.encode())
 
-print("This is my webserver") 
-server_address =('',8000)
-httpd = HTTPServer(server_address,MyServer)
-httpd.serve_forever()
 
+server_address =('',8000)
+httpd = HTTPServer(server_address,Myhandler)
+print("my webserver is running") 
+httpd.serve_forever()
+~~~
 
 ## OUTPUT:
+![Screenshot 2024-03-24 180108](https://github.com/Dhanu654/simplewebserver/assets/148514965/30d74c5d-26d4-4e29-8d21-c26e40b15446)
+
 ![Screenshot 2024-03-24 173756](https://github.com/Dhanu654/simplewebserver/assets/148514965/e61328ea-5f80-4707-9742-a2bae7071046)
 
 
